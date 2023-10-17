@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:envision/screens/chatbot.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kommunicate_flutter/kommunicate_flutter.dart';
 import '../screens/mains/explore.dart';
 import '../screens/mains/forum.dart';
 import '../screens/mains/home.dart';
@@ -71,14 +71,19 @@ class _PageHostState extends State<PageHost> {
                 textColor: Colors.white,
                 fontSize: 16.0
             );
-            dynamic conversationObject = {
-              'appId': '245bd44f458f1551edc13318cb616e21c'
-            };
-            dynamic result = await KommunicateFlutterPlugin.buildConversation(
-                conversationObject);
-            print("Conversation builder success : " + result.toString());
+            Navigator.push(
+                context,
+            MaterialPageRoute(builder: (context)=>MyApp()));
+            // dynamic conversationObject = {
+            //   'appId': '245bd44f458f1551edc13318cb616e21c'
+            // };
+            // dynamic result = await KommunicateFlutterPlugin.buildConversation(
+            //     conversationObject);
+            print("Conversation builder success");
+            // print("Conversation builder success : " + result.toString());
           } on Exception catch (e) {
-            print("Conversation builder error occurred : " + e.toString());
+            // print("Conversation builder error occurred : " + e.toString());
+            print("Conversation builder error occured");
           }
         },
         child: CircleAvatar(

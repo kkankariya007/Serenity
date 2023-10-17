@@ -50,13 +50,14 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   firebase_core: ^1.20.1
+  firebase_core_platform_interface: 4.5.1
   firebase_auth: ^3.4.1
   cloud_firestore: ^3.4.3
   provider: ^6.0.3
   readmore: ^2.2.0
   animated_bottom_navigation_bar: ^1.1.0
   firebase_storage: ^10.3.7
-  image_picker: ^0.8.5+3
+  image_picker: 0.8.5
   shared_preferences: ^2.0.15
   fluttertoast: ^8.1.1
   flutter_launcher_icons: ^0.10.0
