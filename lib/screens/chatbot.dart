@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class MyApp extends StatelessWidget {
   @override
@@ -39,7 +42,13 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
                 controller: _textController,
                 onSubmitted: _handleSubmitted,
                 decoration:
-                new InputDecoration.collapsed(hintText: "Send a message"),
+                new InputDecoration(hintText: "Send a message",
+                border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10.0)),),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: Color(0xFFFFD1D1)),
+                  ),
+                ),
               ),
             ),
             new Container(
@@ -56,10 +65,14 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
 
   void Response(query) async {
     _textController.clear();
-
+    var response =await http.post(Uri.parse("https://abc-ao76.onrender.com/bot?sent="+query));
+    String finaloutput=json.decode(response.body);
+    print(response.toString());
+    if(response.statusCode!=200)
+      finaloutput='Something went wront. Please wait while we fix it.';
     ChatMessage message = new ChatMessage(
-      text: "Hey",
-      name: "Eliana",
+      text: finaloutput,
+      name: "BOT",
       type: false,
     );
     setState(() {
