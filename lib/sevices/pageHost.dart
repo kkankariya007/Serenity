@@ -62,11 +62,11 @@ class _PageHostState extends State<PageHost> {
         backgroundColor: Color(0xFFFFD1D1),
         onPressed: () async {
           try {
-            Fluttertoast.showToast(
+                await Fluttertoast.showToast(
                 msg: "Opening ChatBot,Please Wait",
-                toastLength: Toast.LENGTH_LONG,
+                toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.CENTER,
-                timeInSecForIosWeb: 2,
+                timeInSecForIosWeb: 1,
                 backgroundColor: Colors.green,
                 textColor: Colors.white,
                 fontSize: 16.0

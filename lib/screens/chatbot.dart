@@ -85,7 +85,12 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
     return new Scaffold(
       appBar: new AppBar(
         centerTitle: true,
-        title: new Text("ChatBot"),
+        title: new Text("ChatBot",
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        ),),
+        backgroundColor: Color(0xFFFFD1D1),
       ),
       body: new Column(children: <Widget>[
         new Flexible(
@@ -116,7 +121,7 @@ class ChatMessage extends StatelessWidget {
     return <Widget>[
       new Container(
         margin: const EdgeInsets.only(right: 16.0),
-        child: new CircleAvatar(child: new Text('B')),
+        child: new CircleAvatar(child: new Text('AI')),
       ),
       new Expanded(
         child: new Column(
