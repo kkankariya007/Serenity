@@ -62,27 +62,21 @@ class _PageHostState extends State<PageHost> {
         backgroundColor: Color(0xFFFFD1D1),
         onPressed: () async {
           try {
-                await Fluttertoast.showToast(
+                 Fluttertoast.showToast(
                 msg: "Opening ChatBot,Please Wait",
                 toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.CENTER,
-                timeInSecForIosWeb: 1,
+                timeInSecForIosWeb: 2,
                 backgroundColor: Colors.green,
                 textColor: Colors.white,
                 fontSize: 16.0
             );
             Navigator.push(
                 context,
-            MaterialPageRoute(builder: (context)=>MyApp()));
-            // dynamic conversationObject = {
-            //   'appId': '245bd44f458f1551edc13318cb616e21c'
-            // };
-            // dynamic result = await KommunicateFlutterPlugin.buildConversation(
-            //     conversationObject);
+            MaterialPageRoute(builder: (context)=>HomePageDialogflow()));
+
             print("Conversation builder success");
-            // print("Conversation builder success : " + result.toString());
           } on Exception catch (e) {
-            // print("Conversation builder error occurred : " + e.toString());
             print("Conversation builder error occured");
           }
         },

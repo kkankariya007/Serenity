@@ -29,7 +29,7 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
 
   Widget _buildTextComposer() {
     return new IconTheme(
-      data: new IconThemeData(color: Theme.of(context).accentColor),
+      data: new IconThemeData(color: Colors.pinkAccent.withOpacity(0.70)),//Theme.of(context).accentColor),
       child: new Container(
         margin: const EdgeInsets.symmetric(horizontal: 8.0),
         child: new Row(
@@ -84,11 +84,13 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        centerTitle: true,
-        title: new Text("ChatBot",
+        automaticallyImplyLeading: false,
+        title: new Text("Chat Bot",
         style: TextStyle(
           color: Colors.black,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w100,
+          fontSize: 25,
+          fontFamily: 'Pacifico',
         ),),
         backgroundColor: Color(0xFFFFD1D1),
       ),
