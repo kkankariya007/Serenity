@@ -1,8 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../sevices/user.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -65,9 +65,10 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
 
   void Response(query) async {
     _textController.clear();
-    var response =await http.post(Uri.parse("https://abc-ao76.onrender.com/bot?sent="+query));
+    var response =await http.post(Uri.parse("https://8102-2405-201-e04c-d051-440d-3e6c-6159-f564.ngrok-free.app/answer/?context="+query));
     String finaloutput=json.decode(response.body);
-    print(response.toString());
+
+    print(finaloutput.toString());
     if(response.statusCode!=200)
       finaloutput='Something went wront. Please wait while we fix it.';
     ChatMessage message = new ChatMessage(
@@ -136,7 +137,7 @@ class ChatMessage extends StatelessWidget {
     return <Widget>[
       new Container(
         margin: const EdgeInsets.only(right: 16.0),
-        child: new CircleAvatar(child: new Text('AI')),
+        child: new CircleAvatar(child: new Text('Pal')),
       ),
       new Expanded(
         child: new Column(
@@ -160,7 +161,15 @@ class ChatMessage extends StatelessWidget {
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            new Text(this.name, style: Theme.of(context).textTheme.titleMedium),
+            new Text(this.name,
+        // style:TextStyle(
+            //   decoration: TextDecoration.underline,
+            //   decorationColor: Colors.red, // optional
+            //   decorationThickness: 2, // optional
+            //   decorationStyle: TextDecorationStyle.dashed,
+            // ),
+            style: Theme.of(context).textTheme.titleMedium,
+            ),
             new Container(
               margin: const EdgeInsets.only(top: 5.0),
               child: new Text(text),
@@ -173,7 +182,7 @@ class ChatMessage extends StatelessWidget {
         child: new CircleAvatar(
             child: new Text(
               this.name[0],
-              style: new TextStyle(fontWeight: FontWeight.bold),
+              style: new TextStyle(fontWeight: FontWeight.bold,),
             )),
       ),
     ];
