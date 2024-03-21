@@ -310,6 +310,23 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => const ())),
+                    print("i");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFFE4A3BC),
+                  ),
+                  child:Text("Mood Cheker"),
+                ),
+              ),
+              SizedBox(
                 height: 30,
               ),
               Text(
