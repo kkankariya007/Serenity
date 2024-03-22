@@ -18,6 +18,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../models/userModel.dart';
 import '../../sevices/user.dart';
+import 'moodCamera.dart';
 
 class Home extends StatefulWidget {
   final String uid;
@@ -317,7 +318,7 @@ class _HomeState extends State<Home> {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => const ())),
+                        .push(MaterialPageRoute(builder: (context) => CameraScreen()));
                     print("i");
                   },
                   style: ElevatedButton.styleFrom(
