@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 
-String predict="";
+String predict="ds";
 
 class CameraScreen extends StatefulWidget {
   @override
@@ -26,8 +26,9 @@ class _CameraScreenState extends State<CameraScreen> {
     try {
       var request = http.MultipartRequest(
         "POST",
-        Uri.parse("https://3be3-2405-201-e04c-d051-5bc-d57f-3504-2655.ngrok-free.app/upload"),
+        Uri.parse("https://102c-103-16-69-134.ngrok-free.app/upload"),
       );
+      print("What the fuck is happening");
 
       var imageFile = File(_image!.path);
       request.files.add(
@@ -37,16 +38,15 @@ class _CameraScreenState extends State<CameraScreen> {
           contentType: MediaType('image', 'jpeg'), // Change to 'image', 'jpg' or 'image', 'png' if needed
         ),
       );
-
+        print("What the fuck is happening");
       var response = await request.send();
       var responseData = await response.stream.toBytes();
       var result = String.fromCharCodes(responseData);
-
+    print("Fuck happened!");
       predict=result.toString();
+      if(predict=="null")
+        predict="Neutral";
       print(predict);
-      // int idx=predict.indexOf('":"');
-      // String charac=predict.substring(2,idx);
-      // String anime=predict.substring(idx+3,predict.length-2);
 
     }
     catch(e)
@@ -123,18 +123,25 @@ class _PredictState extends State<Predict> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFFFFD1D1),
+        automaticallyImplyLeading: false,
         elevation: 0,
 
-        title: const Text('Early Rice Disease Detection'),
+        title: const Text('Mood Detected !',
+          style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'Pacifico',
+              fontWeight: FontWeight.w100,
+              fontSize: 25),
+        ),
       ),
       body:
-      Center(child: Text(predict.substring(1,predict.length-3),
+      Center(child: Text("Your Mood is "+predict,
         style: TextStyle(
-          fontSize: 21,
+          fontSize: 25,
           fontWeight: FontWeight.bold,
           letterSpacing: 1.2,
           color:Colors.black,
-          //predict.substring(1,predict.length-3)=="Infected"?Colors.red:Colors.green,
         ),
       ),
       ),
